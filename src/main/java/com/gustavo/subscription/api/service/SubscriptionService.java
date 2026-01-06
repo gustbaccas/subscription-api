@@ -21,10 +21,13 @@ public class SubscriptionService {
     }
 
     public SubscriptionEntity create(SubscriptionEntity subscription) {
-        subscription.setStartDate(LocalDate.now());
+        LocalDate startDate = LocalDate.now();
+
+        subscription.setStartDate(startDate);
+        subscription.setEndDate(startDate.plusDays(30));
         subscription.setStatus(SubscriptionStatus.ACTIVE);
 
-        if (subscription.getAutoRenew() == null) {
+        if(subscription.getAutoRenew() == null) {
             subscription.setAutoRenew(false);
         }
 
