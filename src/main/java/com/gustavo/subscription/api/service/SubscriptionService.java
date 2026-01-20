@@ -50,7 +50,7 @@ public class SubscriptionService {
 
     public SubscriptionEntity cancelSubscription(Long id) {
         SubscriptionEntity subscription = repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Id not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Subscription not found"));
 
         if (!SubscriptionStatus.ACTIVE.equals(subscription.getStatus())) {
             throw new BusinessException("Only ACTIVE subscriptions can be canceled");

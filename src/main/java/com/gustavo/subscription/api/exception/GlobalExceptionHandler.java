@@ -27,6 +27,7 @@ public class GlobalExceptionHandler {
                 .body(error);
     }
 
+    @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiError> handleValidationError(
             MethodArgumentNotValidException ex,
             HttpServletRequest request) {
