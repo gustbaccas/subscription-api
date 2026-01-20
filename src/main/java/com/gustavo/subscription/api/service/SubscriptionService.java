@@ -27,7 +27,7 @@ public class SubscriptionService {
         subscription.setEndDate(startDate.plusDays(30));
         subscription.setStatus(SubscriptionStatus.ACTIVE);
 
-        if(subscription.getAutoRenew() == null) {
+        if (subscription.getAutoRenew() == null) {
             subscription.setAutoRenew(false);
         }
 
@@ -43,7 +43,7 @@ public class SubscriptionService {
 
     public SubscriptionEntity findById(Long id) {
         SubscriptionEntity subscription = repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Id not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Subscription not found"));
 
         return subscription;
     }
